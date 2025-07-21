@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lookbooks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: #0D0D0D;
+            color: #FFFFFF;
+        }
+        /* Custom scrollbar for webkit browsers */
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 2px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #777;
+        }
+        /* Styles for Parallax Effect */
+        .parallax-container {
+            perspective: 1000px; /* This creates the 3D space */
+            overflow: hidden;
+            border-radius: 4px; /* Optional: adds rounded corners */
+        }
+        .parallax-image {
+            /* We use CSS variables to combine scroll and mouse effects */
+            --rotateX: 0deg;
+            --rotateY: 0deg;
+            --translateY: 0px;
+            transition: transform 0.1s linear; /* Smooths the mouse effect */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translateY(var(--translateY)) scale(1.1) rotateX(var(--rotateX)) rotateY(var(--rotateY));
+        }
+        /* Custom Cursor */
+        .custom-cursor {
+            position: fixed;
+            width: 24px;
+            height: 24px;
+            border: 2px solid white;
+            border-radius: 50%;
+            pointer-events: none; /* Allows clicking through the cursor */
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+            z-index: 9999;
+            mix-blend-mode: difference;
+        }
+        .active-gallery-link {
+            color: white;
+            font-weight: bold;
+            border-bottom: 2px solid white;
+            padding-bottom: 4px;
+        }
+        .inactive-gallery-link {
+            color: #6b7280; /* gray-500 */
+        }
+        @media (max-width: 768px) {
+            .custom-cursor {
+                display: none; /* Hide custom cursor on mobile for better usability */
+            }
+        }
+    </style>
+</head>
+<body class="w-full">
+
+    <div class="custom-cursor"></div>
+
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+
+        <!-- Header -->
+        <header class="flex justify-center items-center mb-8 text-xs tracking-widest">
+            <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8">
+                <a href="#" id="home-link" class="hover:opacity-75">HOME</a>
+                <a href="#" id="lookbooks-link" class="hover:opacity-75">LOOKBOOKS</a>
+                <a href="#" id="features-link" class="hover:opacity-75">FEATURES</a>
+                <a href="#" id="icons-link" class="hover:opacity-75">ICONS</a>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div id="content-area">
+            <!-- Home Page -->
+            <div id="home-page">
+                <main>
+                    <!-- Main Title -->
+                    <h1 class="text-6xl md:text-9xl font-black tracking-tighter mb-10 text-center">LOOKBOOKS</h1>
+
+                    <!-- Main Content Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+                        
+                        <!-- Left Column -->
+                        <div class="md:col-span-1 space-y-8">
+                            <!-- Small Image 1 -->
+                            <div class="parallax-container w-full h-auto">
+                                 <img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/alekon-pictures-3LTzr-I8IDQ-unsplash.jpg" alt="Modelo com camisa azul e fundo amarelo" class="parallax-image">
+                            </div>
+
+                            <!-- Small Image 2 -->
+                            <div class="parallax-container w-full h-auto">
+                                <img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/dima-kapralov-geTGVJsR6EA-unsplash.jpg" alt="Modelo com casaco de pele" class="parallax-image">
+                            </div>
+
+                            <!-- Lookbook Links -->
+                            <div class="space-y-4 text-sm tracking-wider">
+                                <div class="flex justify-between items-center border-b border-gray-700 pb-2">
+                                    <a href="#" class="hover:opacity-75">FALL / WINTER 2021 LOOKBOOK</a>
+                                    <span>→</span>
+                                </div>
+                                <div class="flex justify-between items-center border-b border-gray-700 pb-2">
+                                    <a href="#" class="hover:opacity-75">SPRING / SUMMER 2021 LOOKBOOK</a>
+                                    <span>→</span>
+                                </div>
+                                 <div class="flex justify-between items-center border-b border-gray-700 pb-2">
+                                    <a href="#" class="hover:opacity-75">FALL / WINTER 2020 LOOKBOOK</a>
+                                    <span>→</span>
+                                </div>
+                                 <div class="flex justify-between items-center border-b border-gray-700 pb-2">
+                                    <a href="#" class="hover:opacity-75">PRE-SPRING 2020 LOOKBOOK</a>
+                                    <span>→</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column (Large Image) -->
+                        <div class="parallax-container md:col-span-2 w-full h-full">
+                             <img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/daniel-adesina-xgEcOZrvel8-unsplash.jpg" alt="Modelo sentado em uma cadeira" class="parallax-image">
+                        </div>
+                    </div>
+
+                    <!-- Second Grid Section -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mt-4 md:mt-8">
+                        <!-- Large Image -->
+                        <div class="parallax-container md:col-span-2 w-full h-full">
+                            <img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/boluwatife-oguns-gSzcg4TuFxM-unsplash.jpg" alt="Modelo com casaco de pele de onça" class="parallax-image">
+                        </div>
+                        <!-- Two Small Images -->
+                        <div class="md:col-span-1 grid grid-cols-2 md:grid-cols-1 gap-4 md:gap-8">
+                            <div class="parallax-container w-full h-full">
+                                <img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/artem-mihailov-Vpu6VvKiClc-unsplash.jpg" alt="Modelo com roupa verde" class="parallax-image">
+                            </div>
+                            <div class="parallax-container w-full h-full">
+                                <img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/chris-fuller-p4KqEsKwd04-unsplash.jpg" alt="Modelo com boné branco e jaqueta" class="parallax-image">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text and Image Section -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mt-4 md:mt-8">
+                        <div class="md:col-span-2 flex items-center">
+                            <p class="text-xl md:text-4xl font-bold leading-tight tracking-wide">
+                                This website serves as a visual catalog, a curated collection of styles designed to inspire. Explore the lookbooks to discover new trends and aesthetics.
+                            </p>
+                        </div>
+                        <div class="parallax-container md:col-span-1 w-full h-full">
+                             <img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/erik-torres-F2DDIttKWWk-unsplash.jpg" alt="Modelo em um quarto" class="parallax-image">
+                        </div>
+                    </div>
+
+                    <!-- Archive Section -->
+                    <div class="mt-16">
+                        <h2 class="text-sm tracking-widest mb-4">ARCHIVE</h2>
+                        <div id="archive-gallery" class="custom-scrollbar flex overflow-x-auto space-x-4 pb-4">
+                            <!-- Imagens do Arquivo -->
+                            <div class="parallax-container flex-shrink-0 w-40 h-64"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/a-c-9Z8WU7od_Mo-unsplash.jpg" class="parallax-image" alt="Arquivo 1"></div>
+                            <div class="parallax-container flex-shrink-0 w-40 h-64"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/aromateec-WKPnNwP1UE4-unsplash.jpg" class="parallax-image" alt="Arquivo 2"></div>
+                            <div class="parallax-container flex-shrink-0 w-40 h-64"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/brandy-kennedy-Cg5n9W2CvBc-unsplash.jpg" class="parallax-image" alt="Arquivo 3"></div>
+                            <div class="parallax-container flex-shrink-0 w-40 h-64"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/jeferson-gomes-5BI8aExqwBo-unsplash.jpg" class="parallax-image" alt="Arquivo 4"></div>
+                            <div class="parallax-container flex-shrink-0 w-40 h-64"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/klara-kulikova-JchmMd6R4es-unsplash.jpg" class="parallax-image" alt="Arquivo 5"></div>
+                            <div class="parallax-container flex-shrink-0 w-40 h-64"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/natalia-blauth--t001ViBMXg-unsplash.jpg" class="parallax-image" alt="Arquivo 6"></div>
+                            <div class="parallax-container flex-shrink-0 w-40 h-64"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/ramses-cervantes-Igg-oqAofDc-unsplash.jpg" class="parallax-image" alt="Arquivo 7"></div>
+                            <div class="parallax-container flex-shrink-0 w-40 h-64"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/zoe-2xkGqExheS4-unsplash.jpg" class="parallax-image" alt="Arquivo 8"></div>
+                            <div class="parallax-container flex-shrink-0 w-40 h-64"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/zoe-DatPNJzSA7I-unsplash.jpg" class="parallax-image" alt="Arquivo 9"></div>
+                             <div class="parallax-container flex-shrink-0 w-40 h-64"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/img/zoe-UtA68C0ltRg-unsplash.jpg" class="parallax-image" alt="Arquivo 10"></div>
+                        </div>
+                    </div>
+                </main>
+
+                <!-- Footer -->
+                <footer class="mt-16 pt-8 border-t border-gray-700 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-xs tracking-wider">
+                    <div>
+                        <h3 class="font-bold mb-4">NEWSLETTER</h3>
+                        <p class="text-gray-400">Sign up to our newsletter and we'll keep you up to date with the latest arrivals</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-4">ABOUT</h3>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#" class="hover:text-white">Our Story</a></li>
+                            <li><a href="#" class="hover:text-white">Blog</a></li>
+                            <li><a href="#" class="hover:text-white">Lookbooks</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-4">HELP</h3>
+                         <ul class="space-y-2 text-gray-400">
+                            <li><a href="#" class="hover:text-white">Contact</a></li>
+                            <li><a href="#" class="hover:text-white">Shipping & Returns</a></li>
+                            <li><a href="#" class="hover:text-white">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-4">SOCIAL</h3>
+                         <ul class="space-y-2 text-gray-400">
+                            <li><a href="#" class="hover:text-white">Instagram</a></li>
+                            <li><a href="#" class="hover:text-white">Twitter</a></li>
+                            <li><a href="#" class="hover:text-white">Facebook</a></li>
+                        </ul>
+                    </div>
+                </footer>
+                <div class="text-center text-xs text-gray-500 mt-8 pb-4">
+                    © 2025 NOAH. All Rights Reserved.
+                </div>
+            </div>
+            
+            <!-- Gallery Page -->
+            <div id="gallery-page" class="hidden">
+                <h1 class="text-4xl md:text-7xl font-black tracking-tighter mb-10 text-center">Lookbook Moodboard</h1>
+                <nav id="gallery-nav" class="flex justify-center items-center gap-6 md:gap-8 mb-10 text-sm tracking-widest">
+                    <a href="#" data-gallery="fashion-gallery" class="gallery-nav-link active-gallery-link">fashion gallery 1</a>
+                    <a href="#" data-gallery="shoes-gallery" class="gallery-nav-link inactive-gallery-link hover:text-white">shoes</a>
+                    <a href="#" data-gallery="detail-gallery" class="gallery-nav-link inactive-gallery-link hover:text-white">detail</a>
+                </nav>
+                
+                <div id="fashion-gallery" class="gallery-content grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/fashion%20gallery%201/anhelina-osaulenko-I-m942x9Kdk-unsplash.jpg" alt="Modelo em fundo escuro" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/fashion%20gallery%201/clem-onojeghuo-qrVBTtvA2io-unsplash.jpg" alt="Modelo com jaqueta jeans" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/fashion%20gallery%201/curated-lifestyle-kwiEk1A7QkU-unsplash.jpg" alt="Modelo com casaco bege" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/fashion%20gallery%201/jamaal-kareem-yr23EmQJuxI-unsplash.jpg" alt="Modelo com camisa estampada" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/fashion%20gallery%201/jeferson-gomes-vlz8srdgpzM-unsplash.jpg" alt="Modelo com roupa social" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/fashion%20gallery%201/lia-bekyan-wPvL4EE9zoM-unsplash.jpg" alt="Modelo com blusa branca" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/fashion%20gallery%201/andrej-lisakov-fk40M-Cz8Es-unsplash.jpg" alt="Modelo com casaco e óculos" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/fashion%20gallery%201/mikhail-pasynkov-_GrR2bX183s-unsplash.jpg" alt="Modelo com casaco de inverno" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/fashion%20gallery%201/sahil-shettigar-UUHcRpFVMXQ-unsplash.jpg" alt="Modelo com camisa social" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/fashion%20gallery%201/tamara-harhai-fV5mMhG5dOY-unsplash.jpg" alt="Modelo com casaco e chapéu" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/fashion%20gallery%201/zac-meadowcroft-7SOWjIoT0hU-unsplash.jpg" alt="Modelo com jaqueta de couro" class="parallax-image"></div>
+                </div>
+                
+                <div id="shoes-gallery" class="gallery-content hidden grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/shoes/andrej-lisakov-6Mm4e6jFMeM-unsplash.jpg" alt="Sapatos" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/shoes/daniel-maquiling-0wIquG1pPIY-unsplash.jpg" alt="Sapatos" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/shoes/edoardo-cuoghi-D3_Mv0qCa7g-unsplash.jpg" alt="Sapatos" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/shoes/getty-images-lT81QzrkYnw-unsplash.jpg" alt="Sapatos" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/shoes/helen-ast-zgp59AjA3gA-unsplash.jpg" alt="Sapatos" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/shoes/lee-campbell-ahBvSbGKdSc-unsplash.jpg" alt="Sapatos" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/shoes/lena-polishko-2_-FF-oY6ZY-unsplash.jpg" alt="Sapatos" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/shoes/magnus-andersson-dZJorqZxpYA-unsplash.jpg" alt="Sapatos" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/shoes/marjan-sadeghi-97J0-pYkU_g-unsplash.jpg" alt="Sapatos" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/shoes/mikhail-blinov-TGT5u31oKgY-unsplash.jpg" alt="Sapatos" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/shoes/regina-victorica-DZxNMdH0YP8-unsplash.jpg" alt="Sapatos" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/shoes/romello-morris--xYQfEEr18w-unsplash.jpg" alt="Sapatos" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/shoes/valeriia-miller-aqs4qSCUIb0-unsplash.jpg" alt="Sapatos" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/shoes/wesley-mc-lachlan-E320ANlUkys-unsplash.jpg" alt="Sapatos" class="parallax-image"></div>
+                </div>
+
+                <div id="detail-gallery" class="gallery-content hidden grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/detail/aromateec-EMzhgIxjPgI-unsplash.jpg" alt="Imagem de detalhe" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/detail/hrant-khachatryan-P27Yo2Hsm3M-unsplash.jpg" alt="Imagem de detalhe" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/detail/jeff-trierweiler-yrINjq6HInM-unsplash.jpg" alt="Imagem de detalhe" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/detail/jordan-gonzalez-oygkCu9fMhw-unsplash.jpg" alt="Imagem de detalhe" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/detail/michael-fousert-njEIQyao68s-unsplash.jpg" alt="Imagem de detalhe" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/detail/mourad-saadi-Eu1lZgKGxkU-unsplash.jpg" alt="Imagem de detalhe" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/detail/paulo-silva-B2mY4p8GsYo-unsplash.jpg" alt="Imagem de detalhe" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/detail/valeriia-miller-eGRUR9VHGXs-unsplash.jpg" alt="Imagem de detalhe" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/detail/yasamine-june-eBCaW-sLr2I-unsplash.jpg" alt="Imagem de detalhe" class="parallax-image"></div>
+                    <div class="parallax-container"><img src="https://raw.githubusercontent.com/oluczdsgn/lookbook/main/detail/zoe-sHf_dVE8lcE-unsplash.jpg" alt="Imagem de detalhe" class="parallax-image"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const containers = document.querySelectorAll('.parallax-container');
+            const mouseIntensity = 20; // How much the image tilts with the mouse
+            const scrollIntensity = 0.1; // How much the image moves on scroll
+            
+            // --- CUSTOM CURSOR ---
+            const cursor = document.querySelector('.custom-cursor');
+            if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+                window.addEventListener('mousemove', (e) => {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                });
+                document.querySelectorAll('a, button, .parallax-container').forEach(el => {
+                    el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(1.5)');
+                    el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
+                });
+            } else {
+                cursor.style.display = 'none';
+            }
+
+
+            // --- MOUSE PARALLAX EFFECT ---
+            const applyMouseListeners = (container) => {
+                const image = container.querySelector('.parallax-image');
+                if (!image) return;
+
+                container.addEventListener('mousemove', (e) => {
+                    const rect = container.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const width = rect.width;
+                    const height = rect.height;
+                    const rotateX = (y / height - 0.5) * mouseIntensity * -1;
+                    const rotateY = (x / width - 0.5) * mouseIntensity;
+                    
+                    image.style.setProperty('--rotateX', `${rotateX}deg`);
+                    image.style.setProperty('--rotateY', `${rotateY}deg`);
+                });
+
+                container.addEventListener('mouseleave', () => {
+                    image.style.setProperty('--rotateX', '0deg');
+                    image.style.setProperty('--rotateY', '0deg');
+                });
+            };
+            
+            containers.forEach(applyMouseListeners);
+
+            // --- SCROLL PARALLAX EFFECT ---
+            const handleScroll = () => {
+                document.querySelectorAll('.parallax-container').forEach(container => {
+                    const image = container.querySelector('.parallax-image');
+                    if (!image) return;
+                    
+                    const rect = container.getBoundingClientRect();
+                    // Check if the element is in the viewport
+                    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                        const speed = -rect.top * scrollIntensity;
+                        image.style.setProperty('--translateY', `${speed}px`);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            handleScroll(); // Initial call
+
+            // --- ARCHIVE GALLERY HORIZONTAL SCROLL ---
+            const archiveGallery = document.getElementById('archive-gallery');
+            if (archiveGallery) {
+                archiveGallery.addEventListener('wheel', (e) => {
+                    // Prevent the default vertical page scroll
+                    if (e.deltaY !== 0) {
+                        e.preventDefault();
+                        // Scroll the gallery horizontally instead
+                        archiveGallery.scrollLeft += e.deltaY;
+                    }
+                });
+            }
+
+            // --- PAGE NAVIGATION ---
+            const homeLink = document.getElementById('home-link');
+            const lookbooksLink = document.getElementById('lookbooks-link');
+            const homePage = document.getElementById('home-page');
+            const galleryPage = document.getElementById('gallery-page');
+
+            lookbooksLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                homePage.classList.add('hidden');
+                galleryPage.classList.remove('hidden');
+                window.scrollTo(0, 0); // Scroll to top of new page
+            });
+
+            homeLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                galleryPage.classList.add('hidden');
+                homePage.classList.remove('hidden');
+                window.scrollTo(0, 0); // Scroll to top of new page
+            });
+
+            // --- GALLERY TABS ---
+            const galleryNavLinks = document.querySelectorAll('.gallery-nav-link');
+            const galleryContents = document.querySelectorAll('.gallery-content');
+
+            galleryNavLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    // Update link styles
+                    galleryNavLinks.forEach(l => {
+                        l.classList.remove('active-gallery-link');
+                        l.classList.add('inactive-gallery-link');
+                    });
+                    link.classList.add('active-gallery-link');
+                    link.classList.remove('inactive-gallery-link');
+
+                    const targetGalleryId = link.dataset.gallery;
+
+                    // Show/hide galleries
+                    galleryContents.forEach(content => {
+                        if (content.id === targetGalleryId) {
+                            content.classList.remove('hidden');
+                        } else {
+                            content.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
